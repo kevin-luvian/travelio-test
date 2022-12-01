@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 
 services:
   mongodb:
@@ -17,10 +17,3 @@ services:
       - 4001:3000
     depends_on:
       - mongodb
-networks:
-  default:
-    name: travelio-net
-    ipam:
-      driver: default
-      config:
-      - subnet:  172.25.0.0/16
