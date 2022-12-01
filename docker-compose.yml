@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  mongodb:
+    restart: unless-stopped
+    image: "mongo:4.4.12"
+    volumes:
+      - ./bin/mongo-volume:/data/db
+    ports:
+      - 4000:27017
+  app:
+    restart: unless-stopped
+    build: ./travelio-test
+    environment:
+      - MONGO_CONN=mongodb://mongodb:27017/mongodb?retryWrites=true&w=majority
+    ports:
+      - 4001:3000
+    depends_on:
+      - mongodb
+networks:
+  default:
+    name: travelio-net
+    ipam:
+      driver: default
+      config:
+      - subnet:  172.25.0.0/16

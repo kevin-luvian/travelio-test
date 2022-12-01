@@ -1,0 +1,53 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.logo {
+  color: white;
+  padding: 1rem 1rem;
+}
+
+$maincolor: #ff4d4f;
+$maincolorDark: darken($maincolor, 20%);
+
+.trvl-sider .ant-layout-sider-children {
+  background-color: $maincolor;
+
+  .ant-menu,
+  .ant-layout-sider-trigger {
+    background: $maincolor;
+  }
+
+  .ant-menu-item {
+    &:active {
+      background: darken($maincolorDark, 5%) !important;
+    }
+  }
+
+  .ant-menu-item-selected {
+    background: $maincolorDark !important;
+  }
+}
+
+.ant-layout-sider {
+  background: $maincolor !important;
+}
+
+.ant-layout-sider-trigger {
+  background: $maincolorDark !important;
+}
+
+.ant-btn-default {
+  &:hover {
+    color: $maincolor !important;
+    border-color: $maincolor !important;
+  }
+  &:active {
+    color: $maincolorDark !important;
+    border-color: $maincolorDark !important;
+  }
+}
